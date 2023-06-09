@@ -3,6 +3,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Django Settings gitignore
+/settings.ini
+
 # C extensions
 *.so
 
