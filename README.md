@@ -24,4 +24,19 @@ This layer will handle the logic of data collection from the various API's endpo
 
 
 
+### API Methodology
+
+- There are multiple ways to connect to an API and extract data from it.
+- The traditional method is using the **request-response model**:
+  - This is where a server OR a client sends a request to an API endpoint.
+  - Once the endpoint recieves request, it'll send a response back confirming whether the request was processed successfully or not.
+  - This method is usually sufficient to power applications, however it is not ideal for real-time data streaming
+- The other method is to establish something called a **WebSocket** connection.
+  - This method establishes a bidirectional connection between two nodes i.e. a Client - Server **OR** a Server - API.
+  - This connection can be established and can stay open for as long as required or until it is terminated.
+  - This can allow real-time data streaming from endpoints that tolerate WebSocket connections.
+
+
+For this project it is obvious to me that it will require real-time data streaming OR close to real-time data streaming.
+Furthermore, as there will be multiple API endpoint connections, I will be implementing Asynchronous functions such that multiple API calls can be made in parallel and are non-blocking. 
 
