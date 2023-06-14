@@ -15,7 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from consumers import ExternalAPIConsumer
 
+
+## HTTPS URL patterns
 urlpatterns = [
     path('admin/', admin.site.urls),
+]
+
+## Websocket URL patterns
+
+websocket_urlpatterns = [
+    path("api/api1/", ExternalAPIConsumer.as_asgi()),
 ]
