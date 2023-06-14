@@ -8,6 +8,11 @@ class ExternalAPIConsumer(AsyncWebsocketConsumer):
     async def connect(self):
         pass
 
-class ClientConsumer(AsyncWebsocketConsumer):
-    async def connect(self):
+    async def disconnect(self, close_code):
+        pass
+
+    async def receive(self, text_data):
+        pass 
+
+    async def send_to_client(self, data):
         pass

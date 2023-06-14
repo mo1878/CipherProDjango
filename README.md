@@ -40,3 +40,5 @@ This layer will handle the logic of data collection from the various API's endpo
 For this project it is obvious to me that it will require real-time data streaming OR close to real-time data streaming.
 Furthermore, as there will be multiple API endpoint connections, I will be implementing Asynchronous functions such that multiple API calls can be made in parallel and are non-blocking. 
 
+
+
