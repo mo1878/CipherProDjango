@@ -41,4 +41,8 @@ For this project it is obvious to me that it will require real-time data streami
 Furthermore, as there will be multiple API endpoint connections, I will be implementing Asynchronous functions such that multiple API calls can be made in parallel and are non-blocking. 
 
 
+Etherscan API for cross referencing addresses when monitoring other transactions AND for check whether or not our transactions have gone through.
+chain. Gas prices can also be extracted from the etherscan API
+
+
 
