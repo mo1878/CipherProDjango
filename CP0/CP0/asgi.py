@@ -11,16 +11,21 @@ import os
 from channels.auth import AuthMiddlewareStack
 from channels.routing import ProtocolTypeRouter, URLRouter
 from django.core.asgi import get_asgi_application
-import CP0.urls
+from django.urls import path
+from CP0_frontend import consumers
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'CP0.settings')
 
+websocket_urlpatterns = [
+
+    path('ws/newPendingTransactions/', consumers.InfuraWebSocketConsumer.as_asgi()),
+]
+
+
 application = ProtocolTypeRouter(
     {
-        # for HTTPS protocol
-        "http": get_asgi_application(),
 
         # for Websocket protocol
-        "websocket": AuthMiddlewareStack(URLRouter(CP0.urls.websocket_urlpatterns))
+        "websocket": AuthMiddlewareStack(URLRouter(websocket_urlpatterns))
     }
 )

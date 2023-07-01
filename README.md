@@ -22,6 +22,14 @@ This layer will handle the logic of data collection from the various API's endpo
 | Infura API              | Offers a scalable and reliable API infrastructure that allows developers to connect to the Ethereum network without running their own Ethereum nodes.   | Varies based on method  |
 | ArcherDAO API           | Offers a range of APIs for interacting with the ArcherDAO protocol, which provides gas-efficient and frontrunning-resistant transactions on Ethereum.     | JSON or CSV Response   |
 
+# System Design
+
+## Components
+  Backend (Django) - This part of the system is responsible for connecting to the API, retrieving the real-time data and sending it to the front end.
+  Frontend (Vanilla JS) - Renders the data received from the back end updates the UI in real-time
+
+## Flow of Information 
+
 
 
 ### API Methodology
@@ -40,9 +48,20 @@ This layer will handle the logic of data collection from the various API's endpo
 For this project it is obvious to me that it will require real-time data streaming OR close to real-time data streaming.
 Furthermore, as there will be multiple API endpoint connections, I will be implementing Asynchronous functions such that multiple API calls can be made in parallel and are non-blocking. 
 
+# Websockets + Django Channels
 
-Etherscan API for cross referencing addresses when monitoring other transactions AND for check whether or not our transactions have gone through.
-chain. Gas prices can also be extracted from the etherscan API
+- We'll open up a connection on the client side using Websockets
+- We will use Django channels on the server side to send and recieve requests back to the client
 
+## 4 Steps To do Successfully
+
+  1. Configure ASGI
+  2. Build out Consumers
+  3. Deal with routing to those consumers
+  4. JS Websocket API to initiate the handshake and create a connection between the client and the server
+
+  - Etherscan API for cross referencing addresses when monitoring other transactions AND for checking whether or not our transactions have gone through.
+  - Chainlink API for real time stream of Gas prices but can also be extracted from etherscan.
+  
 
 

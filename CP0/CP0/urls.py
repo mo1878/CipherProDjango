@@ -14,17 +14,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from consumers import ExternalAPIConsumer
+from django.urls import path, include
+from CP0_frontend import views
+#from CP0_frontend import views, urls
 
 
 ## HTTPS URL patterns
 urlpatterns = [
     path('admin/', admin.site.urls),
-]
-
-## Websocket URL patterns
-
-websocket_urlpatterns = [
-    path("api/api1/", ExternalAPIConsumer.as_asgi()),
+    # path('', views.index, name='Home')
 ]
