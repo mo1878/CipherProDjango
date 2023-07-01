@@ -60,6 +60,24 @@ Furthermore, as there will be multiple API endpoint connections, I will be imple
   3. Deal with routing to those consumers
   4. JS Websocket API to initiate the handshake and create a connection between the client and the server
 
+
+## Django Backend + React Front End
+
+  - The backend of the application will be in Django 
+  - The Front End of the application will be in React
+  - The back-end ASGI server is connected to the react front end through the websocket connection created by my django consumer.
+  - This will allow me to do some processing on the client side where there is a heavy dependency on web3 javascript libraries.
+  - Therefore the django back end is being used as a websocket api route to the INFURA API
+
+## Next Steps
+
+  - The next steps in this are as follows:
+    - Decipher the input to the Router contract - Retrieve the transaction slippage through this
+    - Get the Router contract ABI (Metadata) in order to decipher the inputs to the contract.
+    - Output the relevant data from the pending transaction itself.
+    - Connect to the chainlink API for real-time gas prices.
+
+
   - Etherscan API for cross referencing addresses when monitoring other transactions AND for checking whether or not our transactions have gone through.
   - Chainlink API for real time stream of Gas prices but can also be extracted from etherscan.
   
