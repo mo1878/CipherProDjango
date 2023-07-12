@@ -106,7 +106,15 @@ class InfuraWebSocketConsumer(AsyncWebsocketConsumer):
                     # Send the input data to the react front end
                     await self.send(text_data=json.dumps({
                         'type': 'processed_data',
-                        'data': transaction_hash_dict['input']
+                        'router_input_data': transaction_hash_dict['input'],
+                        'gas_price': transaction_data['gasPrice'],
+                        'max_priority_fee_per_gas': transaction_data['maxPriorityFeePerGas'],
+                        'max_fee_per_gas': transaction_data['maxFeePerGas'],
+                        'transaction_value' : transaction_data['value'],
+                        'from_address': transaction_data['from'],
+                        'to_address': transaction_data['to'],
+                        'transaction_type': transaction_data['type'],
+                        
                     }))
 
             except Exception as e:
@@ -117,4 +125,5 @@ class InfuraWebSocketConsumer(AsyncWebsocketConsumer):
         if self.websocket and self.websocket.open:
             await self.websocket.close()
         self.ping_task.cancel()  # Cancel the keep-alive task
-        
+    
+
