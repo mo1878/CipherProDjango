@@ -87,7 +87,18 @@ Furthermore, as there will be multiple API endpoint connections, I will be imple
   - My plan is to dockerize the application.
   - I would have a docker container for each part of the application.
   - 1 Django container, 1 React Container, 1 Database container
-  - This can all be hosted on AWS using Elastik Beanstalk?
+  - After researching the best way to deploy on AWS and considering this applications requirements, I think AWS Fargate will be the best option to host it.
+  
+  ### Steps Required to Deploy
+  - Create docker images for both applications (Django and React)
+  - Push Docker images to Amazon ECR (Image repository)
+  - Create a task definition with both containers in it (Since application is tightly coupled)
+  - Create a cluser
+  - create a service
+
+  ### Things To Keep In Mind
+  - I need to figure out port mappings and how the FE and BE will communicate with each other throught the WebSocket connection
+  - 
 
 
   - Etherscan API for cross referencing addresses when monitoring other transactions AND for checking whether or not our transactions have gone through.

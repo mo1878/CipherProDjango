@@ -27,7 +27,6 @@ ADDRESSES = [
 
 CHECKSUM_ADDRESSES = [web3.to_checksum_address(address) for address in ADDRESSES]
 
-UNISWAPV2_ABI = json.load(open('../uniswapv2_abi.json', 'r'))
 
 
 class InfuraWebSocketConsumer(AsyncWebsocketConsumer):
